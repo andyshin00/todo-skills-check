@@ -22,8 +22,3 @@ export const tasks = pgTable("tasks", {
     .references(() => users.id),
   createdAt: timestamp("created_at").defaultNow(),
 });
-
-export type User = typeof users.$inferSelect;
-export type NewUser = typeof users.$inferInsert;
-export type Task = typeof tasks.$inferSelect;
-export type NewTask = typeof tasks.$inferInsert;
