@@ -46,9 +46,9 @@ export async function POST(request: Request) {
 
   const cookieStore = await cookies();
   cookieStore.set("jwt", token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
+    httpOnly: true, //js cant read it
+    secure: process.env.NODE_ENV === "production", //use https in prod
+    sameSite: "strict", //csrf
     path: "/",
     maxAge: 60 * 60,
   });
